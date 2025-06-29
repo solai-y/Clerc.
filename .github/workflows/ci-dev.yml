@@ -16,7 +16,7 @@ jobs:
       - name: Start backend services
         run: |
           cd backend
-          docker-compose up -d
+          docker compose up -d
           sleep 10  # Wait for services to initialize
 
       - name: Run company-service tests
