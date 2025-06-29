@@ -1,0 +1,36 @@
+name: CI for Dev Branch
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start backend services
+        run: |
+          cd backend
+          docker-compose up -d
+          sleep 10  # Wait for services to initialize
+
+      - name: Run company-service tests
+        working-directory: backend/company-service
+        run: |
+          pip install -r requirements.txt
+          pytest tests/integration -v
+
+      - name: Run categories-service tests
+        working-directory: backend/categories-service
+        run: |
+          pip install -r requirements.txt
+          pytest tests/integration -v
+
+      - name: Tear down services
+        if: always()
+        run: cd backend && docker-compose down
