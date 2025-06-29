@@ -11,27 +11,15 @@ supabase: Client = create_client(supabase_url, supabase_key)
 
 app = Flask(__name__)
 
-# Dummy in-memory storage for demonstration
-companies = []
+@app.route('/e2e', methods=['GET'])
+def e2e_test():
+    # Here you would implement your end-to-end test logic
+    return jsonify({'message': 'Company service is reachable'}), 200
 
 @app.route('/companies', methods=['GET'])
 def get_companies():
-    return jsonify(companies)
-
-@app.route('/companies', methods=['POST'])
-def add_company():
-    data = request.json
-    companies.append(data)
-    return jsonify(data), 201
-
-@app.route('/companies/<int:company_id>', methods=['PUT'])
-def update_company(company_id):
-    data = request.json
-    for company in companies:
-        if company['company_id'] == company_id:
-            company.update(data)
-            return jsonify(company)
-    return jsonify({'error': 'Company not found'}), 404
+    response = supabase.table('company').select("*").execute()
+    return jsonify(response.data), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
