@@ -13,26 +13,15 @@ supabase: Client = create_client(supabase_url, supabase_key)
 
 app = Flask(__name__)
 
+@app.route('/e2e', methods=['GET'])
+def e2e_test():
+    # Here you would implement your end-to-end test logic
+    return jsonify({'message': 'Categories service is reachable'}), 200
 
 @app.route('/categories', methods=['GET'])
 def get_categories():
     response = supabase.table('categories').select("*").execute()
     return jsonify(response.data), 200
-
-@app.route('/categories', methods=['POST'])
-def add_category():
-    data = request.json
-    categories.append(data)
-    return jsonify(data), 201
-
-@app.route('/categories/<int:category_id>', methods=['PUT'])
-def update_category(category_id):
-    data = request.json
-    for category in categories:
-        if category['category_id'] == category_id:
-            category.update(data)
-            return jsonify(category)
-    return jsonify({'error': 'Category not found'}), 404
 
 @app.route('/categories/<int:category_id>', methods=['GET'])
 def get_category(category_id):
