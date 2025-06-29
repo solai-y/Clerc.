@@ -31,14 +31,14 @@ jobs:
         working-directory: backend/company-service
         run: |
           pip install -r requirements.txt
-          pytest tests/integration -v
+          pytest -s tests/integration -v
 
       # Run categories-service tests
       - name: Run categories-service tests
         working-directory: backend/categories-service
         run: |
           pip install -r requirements.txt
-          pytest tests/integration -v
+          pytest -s tests/integration -v
 
       # Tear down services with Docker Compose v2 syntax
       - name: Tear down services
