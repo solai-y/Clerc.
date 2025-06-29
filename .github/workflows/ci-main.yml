@@ -1,12 +1,21 @@
 name: CI for Dev Branch
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
+  check-pr-source:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Fail if PR is not from dev branch
+          run: |
+            echo "Source branch: ${{ github.head_ref }}"
+            if [ "${{ github.head_ref }}" != "dev" ]; then
+              echo "❌ Only PRs from dev branch are allowed to merge to main."
+              exit 1
+            fi
+  
   build-and-test:
     runs-on: ubuntu-latest
     steps:
