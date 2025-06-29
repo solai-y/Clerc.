@@ -4,31 +4,6 @@ Clerc.
 Document Tagging System\
 Classify, view, and edit tags of documents with a modern frontend and robust backend.
 
-Table of Contents
------------------
-
--   [Overview](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#overview)
-
--   [Features](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#features)
-
--   [Architecture](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#architecture)
-
--   [Getting Started](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#getting-started)
-
-    -   [Frontend](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#frontend)
-
-    -   [Backend](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#backend)
-
--   [Development](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#development)
-
--   [Testing](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#testing)
-
--   [CI/CD](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#cicd)
-
--   [Contributing](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#contributing)
-
--   [Acknowledgements](https://www.perplexity.ai/search/create-folder-cli-commands-B15cOt.oRiiv3uIYvW4KcQ#acknowledgements)
-
 Overview
 --------
 
