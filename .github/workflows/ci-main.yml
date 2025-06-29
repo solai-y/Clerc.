@@ -1,4 +1,4 @@
-name: CI for Dev Branch
+name: CI for main Branch
 
 on:
   pull_request:
